@@ -2,6 +2,7 @@
 import re
 import sys
 import os
+from actualParser import parseFile
 
 
 #get value from config
@@ -34,5 +35,10 @@ fileExt = getConfigValue(config[1])   # extension of the code files
 filesA = []
 searchFiles(source, filesA, fileExt)  # searches all files with the given root dir with the file extension given in config
 
+functions = [] # will hold names of available functions/methods/procedures
+
+# parse each file found
 for f in filesA:
-    print f
+    with open(f, 'r') as damnFile:
+        parseFile(damnFile)
+        damnFile.close()
