@@ -40,5 +40,5 @@ functions = [] # will hold names of available functions/methods/procedures
 # parse each file found
 for f in filesA:
     with open(f, 'r') as damnFile:
-        parseFile(damnFile)
-        damnFile.close()
+        parseFile(damnFile.read().splitlines())
+        
